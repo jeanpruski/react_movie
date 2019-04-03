@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Nav from './components/Nav';
+import Discover from './components/Discover';
+import Popular from './components/Popular';
+import MyList from './components/MyList';
+import Error from './components/Error';
+
+import './bootstrap.min.css';
 
 class App extends Component {
+
   render() {
+
+ 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div
+          style={{
+            width: '80%',
+            margin: 'auto',
+            marginTop: '40',
+          }}
+        >
+          <Nav />
+          <Switch>
+            <Route path="/" component={Discover}  exact/>
+            <Route path="/popular" component={Popular}/>
+            <Route path="/my-list" component={MyList} />
+            <Route component={Error}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
