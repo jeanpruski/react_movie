@@ -16,16 +16,10 @@ class App extends Component {
  
     return (
       <BrowserRouter>
-        <div
-          style={{
-            width: '80%',
-            margin: 'auto',
-            marginTop: '40',
-          }}
-        >
-          <Nav />
+        <Nav />
+        <div className="container">
           <Switch>
-            <Route path="/" component={Discover}  exact/>
+            <Route path="/home" component={Discover}/>
             <Route path="/popular" component={Popular}/>
             <Route path="/my-list" component={MyList} />
             <Route component={Error}/>
