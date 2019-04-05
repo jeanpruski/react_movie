@@ -1,5 +1,6 @@
 import React from 'react';
-import { relative } from 'path';
+import logo from '../likelogo.svg';
+import logo2 from '../likelogo2.svg';
 
 class Popular extends React.Component {
   constructor() {
@@ -15,10 +16,11 @@ class Popular extends React.Component {
         right: '-7px',
         height: 70,
         width: 55,
-        transition: 'all 2s rease-in-out',
+        transition: 'all 0.5s ease-in-out',
         backgroundPosition: 'center',
         cursor: 'pointer',
         transform: 'scale(1.15) rotate(20deg)',
+        backgroundImage: logo,
       }
     };
     this.handleClick = this.handleClick.bind(this);
@@ -59,7 +61,7 @@ class Popular extends React.Component {
             width: 55,
             transform: 'scale(1.4) rotate(-10deg)',
             cursor: 'pointer',
-            backgroundImage: 'url(/static/media/likelogo2.4cf4b4bc.svg)',
+            backgroundImage: logo,
           }
         })
         console.log('Film ajouté à votre Liste');
@@ -72,11 +74,11 @@ class Popular extends React.Component {
             right: '-7px',
             height: 70,
             width: 55,
-            transition: 'all 2s rease-in-out',
+            transition: 'all 0.5s ease-in-out',
             backgroundPosition: 'center',
             cursor: 'pointer',
             transform: 'scale(1.15) rotate(20deg)',
-            backgroundImage: 'url(/static/media/likelogo.18896eaa.svg)',
+            backgroundImage: logo2,
           }
         })
         console.log('Film retiré de votre Liste');
@@ -130,6 +132,9 @@ class Popular extends React.Component {
 
             <img 
               className="card-img-top mt-0" 
+              style={{
+                borderRadius: 15,
+              }}
               src={urlImg} 
               alt={movie.title}
             />
@@ -140,7 +145,7 @@ class Popular extends React.Component {
                 marginBottom: 20,
                 textAlign: 'justify',
               }}
-              className="card-texte mt-3">
+              className="card-texte mt-3 mb-3">
               {movie.overview}
             </p>
             <div
@@ -191,7 +196,9 @@ class Popular extends React.Component {
         }}
         >Films populaires
         </h1>
-        <p>Découvrez les 20 films les plus populaires du moment.</p>
+        <p
+          className="mb-3"
+        >Découvrez les 20 films les plus populaires du moment.</p>
 
         <ul
         style={{
