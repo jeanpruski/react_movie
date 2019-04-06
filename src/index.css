@@ -51,10 +51,13 @@ ul {
   background-color : grey !important;
   opacity: 0.8;
 }
+.nav {
+} 
+
 
 .bg-light {
-  background-color: #FECC02 !important;
   box-shadow: 0px 0px 50px darkgrey;
+  background-color : #FECC02 !important;
 }
 
 .navbar-light .navbar-toggler {

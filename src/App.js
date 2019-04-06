@@ -11,12 +11,51 @@ import './bootstrap.min.css';
 
 class App extends Component {
 
-  render() {
+  constructor() {
+    super();
+    this.state = {
+        isAdult: false,
+        titleNav: 'cou',
+        titleStyle: {
+          fontStyle: 'normal',
+          color: '#2d2d2d',
+        },
+      }
+      this.changeTitleNav = this.changeTitleNav.bind(this);
 
- 
+  }
+
+  changeTitleNav() {
+    if(this.state.titleNav === 'cou') {
+      this.setState({
+        isAdult: true,
+        titleNav: 'couille',
+        titleStyle: {
+          fontStyle: 'normal',
+          color: 'white',
+        },
+      })
+    } else {
+      this.setState({
+        isAdult: false,
+        titleNav: 'cou',
+        titleStyle: {
+          fontStyle: 'normal',
+          color: '#2d2d2d',
+        },
+      })      
+    }
+  }
+
+  render() {
     return (
       <BrowserRouter>
-        <Nav />
+        <Nav
+          onClickFn={this.changeTitleNav}
+          isAdult={this.state.isAdult}
+          titleStyle={this.state.titleStyle}
+          titleNav={this.state.titleNav}  
+        />
         <div className="container">
           <Switch>
             <Route path="/home" component={Discover}/>

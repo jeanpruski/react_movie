@@ -1,7 +1,23 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import logo from '../likelogo.svg';
 
-const Nav = () => {
+class Nav extends React.Component {
+
+  // constructor() {
+  //   super();
+  //   this.state = {
+
+  //     navColor: '#FECC02 !important',
+  //   };
+
+  // }
+
+
+
+  render() {
+    console.log('props', this.props);
+
     return(
     
         <nav 
@@ -17,15 +33,21 @@ const Nav = () => {
             style={{
               fontWeight: 900,
               color: '#2d2d2d',
-              letterSpacing: -0.5,
+              letterSpacing: -0.3,
               fontSize: '1.6rem',
+              textTransform: 'uppercase',
             }}
             className="navbar-brand"
             id='main-title' 
             to="/home">
             
-          <div id='main-logo'></div>
-          COUCOUCINÉ
+          <div 
+            onClick={this.props.onClickFn}
+            id='main-logo'></div>
+            <em
+              style={this.props.titleStyle}
+            >cou{this.props.titleNav}</em>
+            ciné
           </NavLink>
 
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,6 +73,7 @@ const Nav = () => {
           </div>
         </nav>
     );
+  }
 };
 
 export default Nav;
