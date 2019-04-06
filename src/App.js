@@ -6,6 +6,7 @@ import Discover from './components/Discover';
 import Popular from './components/Popular';
 import MyList from './components/MyList';
 import Error from './components/Error';
+import Affiche from '../src/affiche.svg';
 
 import './bootstrap.min.css';
 
@@ -25,35 +26,44 @@ class App extends Component {
         },
         myMovieList: [
           {
-            title: 'Ninja Resurrection',
-            date: '1997-02-27',
-            original_language: 'JA',
-            id: 31141,
-            overview: 'NINJA NINJA NINJA NINJA ⚔️',
-            poster_path: 'https://image.tmdb.org/t/p/w400/lIJrQKK2ZxNNryL34AmoSfpw8Gr.jpg',
+            title: 'Lorem movie',
+            date: '',
+            original_language: '',
+            id: '',
+            overview: 'Voici un exemple de film dans votre liste, vous avez la possibilité de le supprimer en cliquant dessus.',
+            poster_path: Affiche,
           },
-          {
-            title: 'Ninja Resurrection 2',
-            date: '1999-03-07',
-            original_language: 'JA',
-            id: 54141,
-            overview: 'NINJA NINJA NINJA NINJA 🔪',
-            poster_path: 'https://image.tmdb.org/t/p/w400/lIJrQKK2ZxNNryL34AmoSfpw8Gr.jpg',
-          },
+
         ],
       }
       this.changeTitleNav = this.changeTitleNav.bind(this);
       this.onLikeMovie = this.onLikeMovie.bind(this);
+      this.onRemove = this.onRemove.bind(this);
 
   }
 
-  onLikeMovie(data) {
-    // const newMovieList = this.state.items;
-    // newMovieList.push(data);
+  onRemove(index) {
+    // const myNewMovieList = this.state.myMovieList;
+    // myNewMovieList
+    let newMovieList = this.state.myMovieList;
+    newMovieList.splice(index, 1);
+    this.setState({
+      myMovieList: newMovieList,
+    })
+  }
+
+
+
+  onLikeMovie(movie) {
+    const newMovieList = this.state.myMovieList;
+    console.log('New Movies List', newMovieList);
+    newMovieList.push(movie);
+    // console.log(newMovieList);
+
     // this.setState({
-    //   myMovieList: newMovieList,
-    // })
-    console.log('MyMovieList', this.state.myMovieList);
+    //   myMovieList: newMovieList
+    // });
+    // console.log('MyMovieList', this.state.myMovieList);
   }
 
   changeTitleNav() {
@@ -104,12 +114,17 @@ class App extends Component {
               path="/discover" 
               component={(props) => <Discover isAdult={this.state.isAdult} onLikeFn={this.onLikeMovie} />}
             />
+            {/* <Route
+              path="/discover" 
+              component={(props) => <Discover isAdult={this.state.isAdult} onLikeFn={this.onLikeMovie} />}
+            /> */}
             
-            <Route path="/" component={Popular} exact/>
+
+            <Route path="/" component={(props) => <Popular onLikeFn={this.onLikeMovie} />}  exact/>
 
             <Route 
               path="/my-list" 
-              component={(props) => <MyList movies={this.state.myMovieList} />}   
+              component={(props) => <MyList movies={this.state.myMovieList} onRemoveFn={this.onRemove}/>}   
             />
             <Route component={Error}/>
           </Switch>

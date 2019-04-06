@@ -1,6 +1,8 @@
 import React from 'react';
 import urlProb from '../affiche.svg';
 import load from '../load.gif';
+import { NavLink } from "react-router-dom";
+
 
 // import { formatWithOptions } from 'util';
 
@@ -9,7 +11,7 @@ class Discover extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
+      // movies: [],
       randomMovie: [],
       urlImg: "",
       urlProb: 'coucou',
@@ -54,7 +56,7 @@ class Discover extends React.Component {
 
   onLikeDiscover() {
     this.props.onLikeFn();
-    this.reloadMovie();
+    // this.reloadMovie();
   }
 
   // Func qui remet une vidéo aléatoirement
@@ -64,9 +66,13 @@ class Discover extends React.Component {
 
   //Func qui donne plus d'info 
   giveMoreInfo() {
-    let urlTemp = `www.google.com/${this.state.randomMovie.title}`;
-    console.log(urlTemp);
+    let urlTemp = `https://www.google.fr/search?q=${this.state.randomMovie.title} movie`;
+    console.log('url temp', urlTemp);
+    window.open(urlTemp);
   }
+
+
+
 
   //Func qui affiche "Porno" dans le titre sur Discover
   displayPorno() {
@@ -119,7 +125,7 @@ class Discover extends React.Component {
       if(this.props.isAdult === true) {
 
         //Condition qui check si l'id existe et si adulte
-        if (data.status === 'Released' && data.adult === true && data.title !== null && data.overview.length > 80){
+        if (data.status === 'Released' && data.adult === true && data.title !== null && data.overview.length > 60){
           // console.log('SUCCESS', data);
 
           fetch(URL)
@@ -242,11 +248,21 @@ class Discover extends React.Component {
               </div>
 
 
-              <div
-                onClick={this.onLikeDiscover}
+              <NavLink
+                to="/my-list"
+                onClick={() => this.props.onLikeFn({
+                  title: this.state.randomMovie.title,
+                  date: this.state.randomMovie.release_date,
+                  original_language: this.state.randomMovie.original_language,
+                  id: this.state.randomMovie.id,
+                  poster_path: `https://image.tmdb.org/t/p/w400${this.state.randomMovie.poster_path}`,
+                  overview: this.state.randomMovie.overview,
+                }
+                
+                )}
                 id="crushBtn"
                 >                
-            </div>
+            </NavLink>
 
               <img
               id="rotateImg"
@@ -256,7 +272,7 @@ class Discover extends React.Component {
                 height: '100%',
                 zIndex: 5,
                 transform: 'scale(1.12) translateY(20px)',
-                boxShadow: '2px 2px 5px rgba(0,0,0,0.2)',
+                boxShadow: '2px 2px 10px rgba(0,0,0,0.5)',
               }}
                 className="img-fluid"
                 src={this.state.urlImg}
@@ -267,7 +283,7 @@ class Discover extends React.Component {
 
             <div
             style={this.state.styleCoucou}
-            className="col-12 col-lg-8"
+            className="col-12 col-lg-8 pr-lg-4"
             >
 
             <h2

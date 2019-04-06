@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../likelogo.svg';
 import logo2 from '../likelogo2.svg';
+import { NavLink } from "react-router-dom";
+
 
 class Popular extends React.Component {
   constructor() {
@@ -23,8 +25,8 @@ class Popular extends React.Component {
         backgroundImage: logo,
       }
     };
+    this.onLikePopular = this.onLikePopular.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.likeOnClick = this.likeOnClick.bind(this);
   }
 
   componentDidMount = async () => {
@@ -42,50 +44,15 @@ class Popular extends React.Component {
       });
     }
 
+    onLikePopular() {
+      this.props.onLikeFn();
+    }
+
   handleClick(event) {
     this.setState({
       currentPage: Number(event.target.id)
     });
     console.log(this.state.newMovies);
-    }
-
-    likeOnClick() {
-      // console.log(this.state.styleLike.position);
-      if(this.state.styleLike.top === '50px') {
-        this.setState({
-          styleLike: {
-            position: 'absolute',
-            top: '-30px',
-            right: '-7px',
-            height: 70,
-            width: 55,
-            transform: 'scale(1.4) rotate(-10deg)',
-            cursor: 'pointer',
-            backgroundImage: logo,
-          }
-        })
-        console.log('Film ajouté à votre Liste');
-
-      } else {
-        this.setState({
-          styleLike: {
-            position: 'absolute',
-            top: '50px',
-            right: '-7px',
-            height: 70,
-            width: 55,
-            transition: 'all 0.5s ease-in-out',
-            backgroundPosition: 'center',
-            cursor: 'pointer',
-            transform: 'scale(1.15) rotate(20deg)',
-            backgroundImage: logo2,
-          }
-        })
-        console.log('Film retiré de votre Liste');
-
-      }
-
-
     }
 
   render() {
@@ -103,7 +70,6 @@ class Popular extends React.Component {
             key={index}>
 
             <h5 
-              onClick={this.likeOnClick}
               className="card-title"
               style={{
                 fontSize: '1.5rem',
@@ -148,11 +114,26 @@ class Popular extends React.Component {
               className="card-texte mt-3 mb-3">
               {movie.overview}
             </p>
-            <div
-              onClick={this.likeOnClick}
+            <NavLink
+              to="my-list"
+              onClick={() => this.onLikePopular(
+
+                console.log("Movie", movie),
+
+                
+                {
+                // myMovieList: movie,
+                // date: movie.release_date,
+                // original_language: movie.original_language,
+                // id: movie.id,
+                // poster_path: `https://image.tmdb.org/t/p/w400${movie.poster_path}`,
+                // overview: movie.overview,
+              }
+              
+              )}
               className='like'
               style={this.state.styleLike}
-            ></div>
+            ></NavLink>
           </li>;
   });
 

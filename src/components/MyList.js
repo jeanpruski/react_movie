@@ -8,6 +8,8 @@ class MyList extends React.Component {
 
     const moviesDisplay = this.props.movies.map((movie, index) => {
       return <li
+        key={index}
+        onClick={() => this.props.onRemoveFn(index)}
         className="badgeList"
         style={{
           display: 'flex',
@@ -15,7 +17,7 @@ class MyList extends React.Component {
           padding: 10,
           borderRadius: 10,
           justifyContent: 'space-between',
-          border: '2px solid grey;'
+          cursor: 'pointer'
         }}>
         <div>
           <h3>{movie.title}</h3>
@@ -32,7 +34,7 @@ class MyList extends React.Component {
         <img
               style={{
                 borderRadius: 10,
-                height: '150px',
+                height: '130px',
               }}
                 className="img-fluid"
                 src={movie.poster_path}
@@ -49,7 +51,7 @@ class MyList extends React.Component {
             marginTop: 80,
             color: '#2d2d2d',
           }}>
-          My List
+          Ma Liste
         </h1>
 
         <p
