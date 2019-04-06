@@ -43,6 +43,7 @@ class Discover extends React.Component {
   componentDidMount() {
     this.setState({
       randomMovie: {
+        poster_path: '/ttN0czDnCpr64aj3ANGEf3DKE1L.jpg',
         release_date: "....-..-..",
         title: "Recherche...",
         original_language: '-',
@@ -84,11 +85,12 @@ class Discover extends React.Component {
           marginBottom: 50,
         },
         randomMovie:{
+          poster_path: '/ttN0czDnCpr64aj3ANGEf3DKE1L.jpg',
           release_date: "....-..-..",
           title: "Recherche...",
           original_language: '-',
           id: '-',
-          overview: "COUCOUILLECINÉ est un service recherchant aléatoirement un film porno dans la base de données IMDb. Vous avez la possibilité d'agrémenter votre liste avec ce dernier ou de rafraichir la recherche."
+          overview: "COUCOUILLECINÉ est un service recherchant aléatoirement un film pornographique dans la base de données IMDb. Vous avez la possibilité d'agrémenter votre liste avec ce dernier ou de rafraichir la recherche."
         },
         styleBadge: {
           color: 'white',
@@ -265,6 +267,7 @@ class Discover extends React.Component {
             </NavLink>
 
               <img
+              alt="Movie Cover - Discover"
               id="rotateImg"
               style={{
                 borderRadius: 10,

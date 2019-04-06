@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../likelogo.svg';
-import logo2 from '../likelogo2.svg';
-import { NavLink } from "react-router-dom";
+// import logo2 from '../likelogo2.svg';
+// import { NavLink } from "react-router-dom";
 
 
 class Popular extends React.Component {
@@ -25,7 +25,8 @@ class Popular extends React.Component {
         backgroundImage: logo,
       }
     };
-    this.onLikePopular = this.onLikePopular.bind(this);
+    // this.onLikePopular = this.onLikePopular.bind(this);
+    // this.onLikeDiscover = this.onLikeDiscover.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -36,7 +37,7 @@ class Popular extends React.Component {
     fetch(URL)
       .then(res => res.json())
       .then(data => {
-        console.log('data', data.results);
+        // console.log('data', data.results);
 
         this.setState({
           newMovies: data.results
@@ -44,15 +45,15 @@ class Popular extends React.Component {
       });
     }
 
-    onLikePopular() {
-      this.props.onLikeFn();
-    }
+    // onLikePopular() {
+    //   this.props.onLikeFn();
+    // }
 
   handleClick(event) {
     this.setState({
       currentPage: Number(event.target.id)
     });
-    console.log(this.state.newMovies);
+    // console.log(this.state.newMovies);
     }
 
   render() {
@@ -114,26 +115,25 @@ class Popular extends React.Component {
               className="card-texte mt-3 mb-3">
               {movie.overview}
             </p>
-            <NavLink
+          
+            {/* <NavLink
               to="my-list"
-              onClick={() => this.onLikePopular(
 
-                console.log("Movie", movie),
-
-                
+              onClick={() => this.onLikeFn(
+                // console.log('coucou'),
                 {
-                // myMovieList: movie,
-                // date: movie.release_date,
-                // original_language: movie.original_language,
-                // id: movie.id,
-                // poster_path: `https://image.tmdb.org/t/p/w400${movie.poster_path}`,
-                // overview: movie.overview,
-              }
-              
+                  myMovieList: movie,
+                  date: movie.release_date,
+                  original_language: movie.original_language,
+                  id: movie.id,
+                  poster_path: `https://image.tmdb.org/t/p/w400${movie.poster_path}`,
+                  overview: movie.overview,
+                }
               )}
               className='like'
               style={this.state.styleLike}
-            ></NavLink>
+            ></NavLink> */}
+
           </li>;
   });
 

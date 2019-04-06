@@ -1,5 +1,5 @@
 import React from 'react';
-import { relative } from 'path';
+// import { relative } from 'path';
 
 class MyList extends React.Component {
 
@@ -38,7 +38,7 @@ class MyList extends React.Component {
 
   render() {
 
-    const movies = this.props;
+    // const movies = this.props;
     // console.log(movies);
 
     const moviesDisplay = this.props.movies.map((movie, index) => {
@@ -105,27 +105,33 @@ class MyList extends React.Component {
         </div>
 
         <img
-              style={{
-                borderRadius: 10,
-                height: '180px',
-              }}
-                className="img-fluid"
-                src={movie.poster_path}
-              />
-              <div
-                onClick={() => this.props.onRemoveFn(index)}
-                className='crossBtn'
-                style={this.state.styleCrossBtn}
-              >
-                X
-              </div>
+          alt="Movie Cover"
+          style={{
+            borderRadius: 10,
+            height: '180px',
+          }}
+            className="img-fluid"
+            src={movie.poster_path}
+          />
+
+        <div
+          onClick={() => this.props.onRemoveFn(index)}
+          className='crossBtn'
+          style={this.state.styleCrossBtn}
+        >
+          X
+        </div>
       </li>
     })
   
     // const movieList = 
 
     return(
-      <div id='paddingRightKill'>
+      <div
+        style={{
+          marginBottom: 50,
+        }}
+      id='paddingRightKill'>
         <div
           style= {{
             position: 'relative',
@@ -146,12 +152,12 @@ class MyList extends React.Component {
               onClick={this.onPrint}
               id="btnPrint"
               style={{
-                height: 40,
-                width: 100,
+                height: 42,
+                width: 110,
                 position: 'absolute',
                 top: 5,
                 right: 0,
-                borderRadius: 30,
+                borderRadius: 22,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -163,10 +169,10 @@ class MyList extends React.Component {
               <p
                 style={{
                   fontWeight: 'bold',
-                  fontSize: '1.4rem',
+                  fontSize: '1.3rem',
                   letterSpacing: '4px',
                 }}
-              >@List</p>
+              ><i className="fas fa-file-download"></i> PDF</p>
             </div>
           </div>
 
