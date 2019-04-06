@@ -125,10 +125,16 @@ ul {
   .card {
     border-radius: 15px !important;
   }
+  .xtremCard {
+    border-radius: 15px !important;
+  }
 }
 
 @media (max-width: 575px) {
   .card {
+    border-radius: 0px !important;
+  }
+  .xtremCard {
     border-radius: 0px !important;
   }
 }
@@ -171,7 +177,7 @@ ul {
 
 #crushBtn:hover{
   opacity: 0.7;
-  transform: rotate(-10deg) scale(1.2);
+  transform: rotate(0deg) scale(1.2);
 }
 
 #discrushBtn:hover {

@@ -16,7 +16,7 @@ class Nav extends React.Component {
 
 
   render() {
-    console.log('props', this.props);
+    // console.log('props', this.props);
 
     return(
     
@@ -39,7 +39,7 @@ class Nav extends React.Component {
             }}
             className="navbar-brand"
             id='main-title' 
-            to="/home">
+            to="/discover" exact>
             
           <div 
             onClick={this.props.onClickFn}
@@ -58,11 +58,13 @@ class Nav extends React.Component {
             <ul className="navbar-nav ml-auto">
 
                <li className="nav-item">
-                <NavLink className="nav-link" to="/popular">Populaire</NavLink>
+                <NavLink 
+                  style={this.props.displayStyle}
+                  className="nav-link" to="/" exact>Populaire</NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="/home">Découvrir</NavLink>
+                <NavLink className="nav-link" to="/discover">Découvrir</NavLink>
               </li>
 
               <li className="nav-item">

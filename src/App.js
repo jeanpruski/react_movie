@@ -20,8 +20,16 @@ class App extends Component {
           fontStyle: 'normal',
           color: '#2d2d2d',
         },
+        displayStyle: {
+          display: 'flex',
+        }
       }
       this.changeTitleNav = this.changeTitleNav.bind(this);
+      this.onLikeMovie = this.onLikeMovie.bind(this);
+
+  }
+
+  onLikeMovie() {
 
   }
 
@@ -34,6 +42,9 @@ class App extends Component {
           fontStyle: 'normal',
           color: 'white',
         },
+        displayStyle: {
+          display: 'none',
+        }
       })
     } else {
       this.setState({
@@ -43,6 +54,9 @@ class App extends Component {
           fontStyle: 'normal',
           color: '#2d2d2d',
         },
+        displayStyle: {
+          display: 'flex',
+        }
       })      
     }
   }
@@ -54,13 +68,22 @@ class App extends Component {
           onClickFn={this.changeTitleNav}
           isAdult={this.state.isAdult}
           titleStyle={this.state.titleStyle}
-          titleNav={this.state.titleNav}  
+          titleNav={this.state.titleNav}
+          displayStyle={this.state.displayStyle}  
         />
         <div className="container">
-          <Switch>
-            <Route path="/home" component={Discover}/>
-            <Route path="/popular" component={Popular}/>
-            <Route path="/my-list" component={MyList} />
+          <Switch
+            isAdult={this.state.isAdult}
+          >
+
+
+            <Route
+              path="/discover" 
+              component={(props) => <Discover isAdult={this.state.isAdult}/>}
+            />
+            
+            <Route path="/" component={Popular} exact/>
+            <Route path="/my-list" component={MyList}/>
             <Route component={Error}/>
           </Switch>
         </div>
