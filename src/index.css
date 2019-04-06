@@ -210,12 +210,12 @@ ul {
   transition: all 1s;
 }
 
-.badgeList:hover{
+/* .badgeList:hover{
   background-image: linear-gradient(to right, rgba(91, 91, 91, 0.0), rgba(91, 91, 91, 0.0));
   background-color: #fc4456;
   transform: scale(1.05);
   opacity: 0.8;
-}
+} */
 
 #moreInfo {
   transition: all 1s;
@@ -228,4 +228,43 @@ ul {
   text-decoration: none;
   letter-spacing: 4px;
   opacity: 0.8;
+}
+
+.pStyle {
+  margin-right: 15px;
+  background-image: linear-gradient(rgba(91, 91, 91, 0) 50%, rgba(0, 0, 0, 0.2));
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0 5px 5px 5px;
+}
+
+.crossBtn {
+  background-color: #f7c625;
+  transition: all 1s;
+  opacity: 0.85;
+}
+
+.crossBtn:hover {
+  background-color: #fc4456;
+  opacity: 0.7;
+  transform: scale(1.2);
+}
+
+#btnPrint {
+  transition: all 1s;
+  cursor: pointer;
+  background-color: #fdd237;
+
+}
+
+#btnPrint:hover {
+  transform: scale(1.1);
+  background-color: #3aeaad;
+  opacity: 0.8;
+}
+
+@media print {
+  #btnPrint, .crossBtn {
+    display:none !important;
+  }
 }

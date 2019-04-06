@@ -43,7 +43,7 @@ class Discover extends React.Component {
   componentDidMount() {
     this.setState({
       randomMovie: {
-        release_date: "xxxx-xx-xx",
+        release_date: "....-..-..",
         title: "Recherche...",
         original_language: '-',
         id: '-',
@@ -84,7 +84,7 @@ class Discover extends React.Component {
           marginBottom: 50,
         },
         randomMovie:{
-          release_date: "xxxx-xx-xx",
+          release_date: "....-..-..",
           title: "Recherche...",
           original_language: '-',
           id: '-',

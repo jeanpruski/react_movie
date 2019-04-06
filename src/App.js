@@ -30,7 +30,7 @@ class App extends Component {
             date: '',
             original_language: '',
             id: '',
-            overview: 'Voici un exemple de film dans votre liste, vous avez la possibilité de le supprimer en cliquant dessus.',
+            overview: 'Voici un exemple de film dans votre liste, vous avez la possibilité de le supprimer en cliquant sur la croix.',
             poster_path: Affiche,
           },
 
@@ -56,7 +56,7 @@ class App extends Component {
 
   onLikeMovie(movie) {
     const newMovieList = this.state.myMovieList;
-    console.log('New Movies List', newMovieList);
+    // console.log('New Movies List', newMovieList);
     newMovieList.push(movie);
     // console.log(newMovieList);
 
