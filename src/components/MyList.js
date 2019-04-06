@@ -1,17 +1,74 @@
 import React from 'react';
 
-const MyList = () => {
-  return(
-    <div>
-      <h1
+class MyList extends React.Component {
+  render() {
+
+    const movies = this.props;
+    console.log(movies);
+
+    const moviesDisplay = this.props.movies.map((movie, index) => {
+      return <li
+        className="badgeList"
         style={{
-          marginTop: 80,
-          color: '#2d2d2d',
+          display: 'flex',
+          marginBottom: 20,
+          padding: 10,
+          borderRadius: 10,
+          justifyContent: 'space-between',
+          border: '2px solid grey;'
         }}>
-        MyList
-      </h1>
-    </div>
-  );
+        <div>
+          <h3>{movie.title}</h3>
+          <div>
+            <p>{movie.date}</p>
+            <p>{movie.original_language}</p>
+            <p>{movie.id}</p>
+          </div>
+          <div>
+            <p>{movie.overview}</p>
+          </div>
+        </div>
+
+        <img
+              style={{
+                borderRadius: 10,
+                height: '150px',
+              }}
+                className="img-fluid"
+                src={movie.poster_path}
+              />
+      </li>
+    })
+  
+    // const movieList = 
+
+    return(
+      <div id='paddingRightKill'>
+        <h1
+          style={{
+            marginTop: 80,
+            color: '#2d2d2d',
+          }}>
+          My List
+        </h1>
+
+        <p
+          className="mb-3"
+        >Retrouvez ici les différents films que vous avez choisi.</p>
+
+
+          <ul
+            className="col-12 col-xl-10 offset-xl-1"
+            style={{
+              margin: 'auto !important',
+              padding: 'Opx !important',
+            }}
+          >
+           {moviesDisplay}
+          </ul>
+      </div>
+   );
+  }
 };
 
 export default MyList;

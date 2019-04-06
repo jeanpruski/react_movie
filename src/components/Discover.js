@@ -16,6 +16,17 @@ class Discover extends React.Component {
       titleAdult: '',
       styleCoucou: {
         color: 'grey',
+        marginBottom: 50,
+
+      },
+      styleBadge: {
+        color: 'white',
+        fontWeight: 'bold',                  
+        backgroundColor: '#f7c625',
+        padding: '5px 13px',
+        borderRadius: 30,
+        letterSpacing: '2px',
+        boxShadow: '2px 2px 0 #605f5f',
       }
     };
 
@@ -23,17 +34,38 @@ class Discover extends React.Component {
     this.reloadMovie = this.reloadMovie.bind(this);
     this.displayMovie = this.displayMovie.bind(this);
     this.displayPorno = this.displayPorno.bind(this);
+    this.onLikeDiscover = this.onLikeDiscover.bind(this);
+    this.giveMoreInfo = this.giveMoreInfo.bind(this);
   }
 
   componentDidMount() {
+    this.setState({
+      randomMovie: {
+        release_date: "xxxx-xx-xx",
+        title: "Recherche...",
+        original_language: '-',
+        id: '-',
+        overview: "COUCOUCINÉ est un service recherchant aléatoirement un film dans la base de données IMDb. Vous avez la possibilité d'agrémenter votre liste avec ce dernier ou de rafraichir la recherche. Belles découvertes !!"
+      },
+    })
     this.displayPorno(); 
     this.fetchMovie();  
     }
 
+  onLikeDiscover() {
+    this.props.onLikeFn();
+    this.reloadMovie();
+  }
 
   // Func qui remet une vidéo aléatoirement
   reloadMovie() {
     this.fetchMovie();  
+  }
+
+  //Func qui donne plus d'info 
+  giveMoreInfo() {
+    let urlTemp = `www.google.com/${this.state.randomMovie.title}`;
+    console.log(urlTemp);
   }
 
   //Func qui affiche "Porno" dans le titre sur Discover
@@ -43,6 +75,23 @@ class Discover extends React.Component {
         titleAdult: ' (+18)',
         styleCoucou: {
           color: '#f26878',
+          marginBottom: 50,
+        },
+        randomMovie:{
+          release_date: "xxxx-xx-xx",
+          title: "Recherche...",
+          original_language: '-',
+          id: '-',
+          overview: "COUCOUILLECINÉ est un service recherchant aléatoirement un film porno dans la base de données IMDb. Vous avez la possibilité d'agrémenter votre liste avec ce dernier ou de rafraichir la recherche."
+        },
+        styleBadge: {
+          color: 'white',
+          fontWeight: 'bold',                  
+          backgroundColor: '#f79ea7',
+          padding: '5px 13px',
+          borderRadius: 30,
+          letterSpacing: '2px',
+          boxShadow: '2px 2px 0 #605f5f',
         }
       })
     } 
@@ -70,8 +119,8 @@ class Discover extends React.Component {
       if(this.props.isAdult === true) {
 
         //Condition qui check si l'id existe et si adulte
-        if (data.status === 'Released' && data.adult === true && data.title !== null && data.overview !== (null || "" || "...")){
-          console.log('SUCCESS', data);
+        if (data.status === 'Released' && data.adult === true && data.title !== null && data.overview.length > 80){
+          // console.log('SUCCESS', data);
 
           fetch(URL)
             .then(res => res.json())
@@ -91,8 +140,8 @@ class Discover extends React.Component {
       }
       // Sinon renvoi un film avec id correct et tout public
       else {
-        if (data.status === 'Released' && data.adult === false && data.overview !== (null || "")){
-          console.log('SUCCESS', data);
+        if (data.status === 'Released' && data.adult === false && data.overview !== (null || "" || "." || ".." || "...") && data.overview.length > 100){
+          // console.log('SUCCESS', data);
 
           fetch(URL)
             .then(res => res.json())
@@ -114,6 +163,8 @@ class Discover extends React.Component {
     });
   }
 
+
+
   // Func qui affiche l affiche du film
   displayMovie() {
         if(this.state.randomMovie.poster_path === null) {
@@ -131,7 +182,7 @@ class Discover extends React.Component {
 
   render () {
 
-    console.log('props', this.props);
+    // console.log('props', this.props);
     // console.log('state', this.state);
 
     return(
@@ -153,7 +204,7 @@ class Discover extends React.Component {
 
         <p
           className="mb-3"
-        >Découvrez ici des films au hasard de la base de données IMDb</p>
+        >Découvrez ici des films au hasard (Base de données IMDb).</p>
 
         <div
           className="row xtremCard" 
@@ -182,7 +233,7 @@ class Discover extends React.Component {
                 borderRadius: 30,
                 display: 'flex',
                 padding: 10,
-                marginBottom: 50,
+                marginBottom: 55,
               }}>
 
             <div
@@ -192,17 +243,20 @@ class Discover extends React.Component {
 
 
               <div
+                onClick={this.onLikeDiscover}
                 id="crushBtn"
                 >                
             </div>
 
               <img
+              id="rotateImg"
               style={{
                 borderRadius: 10,
-                margin: 'auto',
+                margin: '3px auto auto auto',
                 height: '100%',
                 zIndex: 5,
                 transform: 'scale(1.12) translateY(20px)',
+                boxShadow: '2px 2px 5px rgba(0,0,0,0.2)',
               }}
                 className="img-fluid"
                 src={this.state.urlImg}
@@ -226,23 +280,24 @@ class Discover extends React.Component {
                 letterSpacing: "2px",
                 marginTop: 10,
                 marginBottom: 20,
-                fontWeight: 500,
+                fontWeight: 400,
               }}>
               {this.state.randomMovie.title}
             </h2>
 
             <div
-              className="col-12"
               style={{
                 // width: '100%',
                 display: 'flex',
                 justifyContent: 'space-between',
-                background: 'white',
+                backgroundColor: 'rgba(200,200,200,0)',
                 borderRadius: 30,
-                padding: 5,
+                padding: 7,
                 opacity: 0.8,
                 margin: '0px !important',
               }}
+              className="col-12"
+
             >
 
 
@@ -254,41 +309,56 @@ class Discover extends React.Component {
                 style={{
                   fontWeight: 'bold',
                   backgroundColor: 'lightgrey',
-                  padding: '10px 20px',
+                  padding: '5px 13px',
                   borderRadius: 30,
                   letterSpacing: '2px',
+                  boxShadow: '2px 2px 0 grey',
                 }}
               >{this.state.randomMovie.release_date}</p>
 
               <p
                 style={{
+                  color: 'white',
                   backgroundColor: 'darkgrey',
-                  padding: '10px 20px',
+                  padding: '5px 13px',
                   borderRadius: 30,
                   fontWeight: 'bold',
                   textTransform: 'uppercase',
+                  boxShadow: '2px 2px 0 #7f7e7e',
+
                 }}
-              >VO. : {this.state.randomMovie.original_language}</p>
+              >VO : {this.state.randomMovie.original_language}</p>
 
               <p
-                style={{
-                  color: 'white',
-                  fontWeight: 'bold',                  
-                  backgroundColor: 'grey',
-                  padding: '10px 20px',
-                  borderRadius: 30,
-                  letterSpacing: '2px',
-                }}
-              >Id: {this.state.randomMovie.id}</p>
+                style={this.state.styleBadge}
+              >ID : {this.state.randomMovie.id}</p>
             </div>
 
             <p
                 style={{
                   textAlign: 'justify',
-                  marginTop: 10,
+                  marginTop: 30,
                   color: 'grey',
                 }}
               >{this.state.randomMovie.overview}</p>
+
+              <div
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+
+              }}>
+                <p 
+                  id="moreInfo"
+                  onClick={this.giveMoreInfo}
+                  style={{
+                    fontSize: '1.2rem',
+                    marginTop: 20,
+                    fontWeight: '400',
+                    cursor: 'pointer',
+                  }}
+                >Plus d'info...</p>
+              </div>
 
             </div>
 

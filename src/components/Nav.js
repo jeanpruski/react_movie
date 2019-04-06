@@ -4,17 +4,6 @@ import logo from '../likelogo.svg';
 
 class Nav extends React.Component {
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-
-  //     navColor: '#FECC02 !important',
-  //   };
-
-  // }
-
-
-
   render() {
     // console.log('props', this.props);
 
@@ -44,9 +33,10 @@ class Nav extends React.Component {
           <div 
             onClick={this.props.onClickFn}
             id='main-logo'></div>
+            cou
             <em
               style={this.props.titleStyle}
-            >cou{this.props.titleNav}</em>
+            >{this.props.titleNav}</em>
             ciné
           </NavLink>
 

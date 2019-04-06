@@ -3,6 +3,7 @@
   background-image: linear-gradient(white, rgb(91, 91, 91));
   min-height: 100vh;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -197,4 +198,27 @@ ul {
   #titleMovieRandom {
     color: #2d2d2d;
   }
+}
+
+#paddingRightKill .col-12, #paddingRightKill .col-xl-10 {
+  padding-right: 0px !important;
+}
+
+.badgeList {
+  background-image: linear-gradient(to right, #f4f4f4 60%, rgba(91, 91, 91, 0.2));
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+
+}
+
+#moreInfo {
+  transition: all 1s;
+  color: grey;
+  letter-spacing: 2px;
+
+}
+#moreInfo:hover {
+  transform: scale(1.1) translateX(-10px);
+  text-decoration: none;
+  letter-spacing: 4px;
+  opacity: 0.8;
 }
