@@ -10,4 +10,4 @@ Cette dernière nous permet :
 
 
 ![alt](http://prjski.xyz/img/github/coucoucine_lg.gif)
-![alt](http://prjski.xyz/img/github/coucoucine_sm.gif)
+![alt](https://github.com/jeanpruski/jeanpruski.github.io/blob/master/gif/coucoucine_sm.gif?raw=true)
