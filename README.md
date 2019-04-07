@@ -1,6 +1,6 @@
 # COUCOUCINÉ
 
-COUCOUCINÉ est une application react utilisant l'API TheMovieDb.
+**COUCOUCINÉ** est une application react utilisant l'API TheMovieDb.
 
 Cette dernière nous permet :
 - De découvrir les films les plus populaires du moment.
@@ -8,6 +8,8 @@ Cette dernière nous permet :
 - D'enregistrer ces films sur une liste, de la gérer et de pouvoir la sauvegarder en PDF.
 
 
-
+**Desktop Version**
 ![alt](http://prjski.xyz/img/github/coucoucine_lg.gif)
+
+**Mobile Version**
 ![alt](https://github.com/jeanpruski/jeanpruski.github.io/blob/master/gif/coucoucine_sm.gif?raw=true)
