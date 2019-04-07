@@ -1,11 +1,11 @@
-# Wishlist_php
+# COUCOUCINÉ
 
-Wishlist_php est une application php utilisant une base de données MySQL.
+COUCOUCINÉ est une application react utilisant l'API TheMovieDb.
 
 Cette dernière nous permet :
-- De chercher un cadeau aléatoirement dans la base de données en fonction de certains critères (Prix, Age, ...).
-- D' ajouter un cadeau à la base de données pour en faire profiter la communauté !
+- De découvrir les films les plus populaires du moment.
+- De générer aléatoirement un film de la base de donnée *(tinderLike)*.
+- D'enregistrer ces films sur une liste, de la gérer et de pouvoir la sauvegarder en PDF.
 
-**Fini les sueurs froides à l'approche de Noël**
-
-![alt](http://prjski.xyz/img/github/wishlist.gif)
+![alt](http://prjski.xyz/img/github/coucoucine_lg.gif)
+![alt](http://prjski.xyz/img/github/coucoucine_sm.gif)
