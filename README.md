@@ -1,6 +1,6 @@
 # COUCOUCINÉ 
 
-**COUCOUCINÉ** - *(Movie_react)* - est une application react utilisant l'API TheMovieDb. 
+**COUCOUCINÉ** - *(Movie_react)* - est une application react utilisant l'[API TheMovieDb](https://www.themoviedb.org/). 
 ```
 Cette dernière nous permet :
 
