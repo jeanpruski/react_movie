@@ -263,8 +263,8 @@ class Popular extends React.Component {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginBottom: 60,
-                marginTop: 80,
+                marginBottom: 80,
+                marginTop: 90,
                 transform: 'scale(1.2)',
               }}
             >
@@ -297,8 +297,23 @@ class Popular extends React.Component {
                   textAlign: 'left',
                   fontSize: '1.3rem',
                   lineHeight: '1.4rem',
+                  // fontWeight:100,
                 }}
               >Découvrez les films les plus populaires de la plateforme.</p>
+
+                <div 
+                  id="arrow1"
+                  style={{
+                    position: 'absolute',
+                    top: -30,
+                    left: 120,
+                    height: 40,
+                    width: 40,
+                    transform: 'rotate(-15deg)',
+                    opacity: 0.6,
+                  }}>
+                </div>
+
             </div>
 
 
@@ -308,8 +323,7 @@ class Popular extends React.Component {
                 alignItems: 'center',
                 flexDirection: 'row-reverse',
                 maxWidth: 400,
-                marginTop: 10,
-
+                marginTop: 30,
                 transform: 'translateX(40px) rotate(1deg)',
 
               }}
@@ -323,8 +337,23 @@ class Popular extends React.Component {
                   textAlign: 'right',
                   fontSize: '1.3rem',
                   lineHeight: '1.4rem',
+                  // fontWeight:100,
                 }}
               >Générez un film aléatoirement et de magnifiques histoires.</p>
+
+                <div 
+                  id="arrow2"
+                  style={{
+                    position: 'absolute',
+                    top: -30,
+                    right: 100,
+                    height: 40,
+                    width: 40,
+                    transform: 'rotate(20deg)',
+                    opacity: 0.6,
+                  }}>
+                </div>
+              
             </div>
 
 
@@ -333,7 +362,7 @@ class Popular extends React.Component {
                 display: 'flex',
                 alignItems: 'center',
                 maxWidth: 400,
-                marginTop: 10,
+                marginTop: 30,
 
                 transform: 'translateX(-40px) rotate(1deg)',
               }}
@@ -347,30 +376,47 @@ class Popular extends React.Component {
                   textAlign: 'left',
                   fontSize: '1.3rem',
                   lineHeight: '1.4rem',
+                  // fontWeight:100,
                 }}
               >Ajoutez, retirez et enregistrez votre liste de film.</p>
+
+                <div 
+                  id="arrow3"
+                  style={{
+                    position: 'absolute',
+                    top: -30,
+                    left: 110,
+                    height: 40,
+                    width: 40,
+                    transform: 'rotate(-30deg)',
+                    opacity: 0.6,
+                  }}>
+                </div>
+
             </div>
 
 
 
-              <p
+              {/* <p
                 style={{
                   textAlign: 'right',
                   fontSize: '1.3rem',
                   lineHeight: '1.4rem',
                   marginTop: '50px',
+                  fontWeight:100,
                 }}
-              >Courrez acheter du Pop-Corn !!</p>
+              >Courrez acheter du Pop-Corn !!</p> */}
 
 
 
-            <h2
+            <h4
+              id="enter"
               onClick={this.shutdownModal}
               style={{
-                marginTop: 20,
+                marginTop: 50,
                 cursor: 'pointer',
               }}
-            >Créer une liste !</h2>
+            >Créer une liste !</h4>
           </div>
         </div>
       </div>

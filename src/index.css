@@ -326,3 +326,32 @@ ul {
   transform: rotate(5deg) translateY(10px);
   /* background-image: url(../src/window1.svg); */
 }
+
+#arrow1 {
+  background-image: url(../src/arrow2.svg);
+}
+
+#arrow2 {
+  background-image: url(../src/arrow.svg);
+}
+
+#arrow3 {
+  background-image: url(../src/arrow2.svg);
+}
+
+#enter {
+  background-color: #FECC02;
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+#enter:hover {
+  transform: scale(1.2);
+  opacity: 0.6;
+  background-color: grey;
+  color: black;
+  box-shadow: 2px 2px 0 black;
+}
