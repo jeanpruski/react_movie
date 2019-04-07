@@ -263,15 +263,15 @@ class Popular extends React.Component {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginBottom: 80,
+                marginBottom: 100,
                 marginTop: 90,
-                transform: 'scale(1.2)',
+                transform: 'scale(1.3)',
               }}
             >
               <div id="logoModalTitle"></div>
               <h1
                 style={{
-                  marginTop: 10,
+                  marginTop: 8,
                   fontWeight: 700,
                   letterSpacing: '1px',
                   textShadow: "2px 2px 10px black",
@@ -310,7 +310,7 @@ class Popular extends React.Component {
                     height: 40,
                     width: 40,
                     transform: 'rotate(-15deg)',
-                    opacity: 0.6,
+                    opacity: 0.4,
                   }}>
                 </div>
 
@@ -350,7 +350,7 @@ class Popular extends React.Component {
                     height: 40,
                     width: 40,
                     transform: 'rotate(20deg)',
-                    opacity: 0.6,
+                    opacity: 0.4,
                   }}>
                 </div>
               
@@ -389,7 +389,7 @@ class Popular extends React.Component {
                     height: 40,
                     width: 40,
                     transform: 'rotate(-30deg)',
-                    opacity: 0.6,
+                    opacity: 0.4,
                   }}>
                 </div>
 
