@@ -15,6 +15,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+        isEnter: true,
         isAdult: false,
         titleNav: 'cou',
         titleStyle: {
@@ -120,7 +121,7 @@ class App extends Component {
             /> */}
             
 
-            <Route path="/" component={(props) => <Popular onLikeFn={this.onLikeMovie} />}  exact/>
+            <Route path="/" component={(props) => <Popular isEnter={this.state.isEnter} onLikeFn={this.onLikeMovie} />}  exact/>
 
             <Route 
               path="/my-list" 

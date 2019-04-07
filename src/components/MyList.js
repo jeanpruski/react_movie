@@ -1,4 +1,6 @@
 import React from 'react';
+// import logo from '../likelogo.svg';
+
 // import { relative } from 'path';
 
 class MyList extends React.Component {
@@ -137,6 +139,15 @@ class MyList extends React.Component {
             position: 'relative',
           }}
         >
+            <div
+              id="forPrint"
+              style={{
+                position: 'fixed',
+                top: '10px',
+                fontSize: '2.4rem',
+                fontWeight: 700,
+              }}>
+            // COUCOUCINÉ</div>
             <h1
               style={{
                 marginTop: 80,
@@ -181,6 +192,8 @@ class MyList extends React.Component {
             style={{
               margin: 'auto !important',
               padding: 'Opx !important',
+              display: 'flex',
+              flexDirection: 'column-reverse',
             }}
           >
            {moviesDisplay}

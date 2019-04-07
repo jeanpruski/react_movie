@@ -263,8 +263,66 @@ ul {
   opacity: 0.8;
 }
 
+#forPrint {
+  display: none;
+}
+
 @media print {
   #btnPrint, .crossBtn {
     display:none !important;
   }
+  #forPrint {
+    display: block;
+  }
+}
+
+#modalEnter {
+  /* background-color: green; */
+  z-index: 1001 !important;
+  /* min-height: 100vh !important; */
+  background-color: rgba(0,0,0,0.55);
+  background-image: linear-gradient(to right, rgba(55,55,55,0.45), rgba(80,80,80,0.8) 50%, rgba(25,25,25,0.45));
+}
+
+#logoModalTitle {
+  height: 60px;
+  width: 50px;
+  /* background-color: red; */
+  background-image: url(../src/logo2.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.windows {
+  height: 80px;
+  width: 110px;
+  min-width: 110px;
+  /* background-color: red; */
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+#window1{
+  background-image: url(../src/window1.svg);
+  margin-right: 30px;
+  transform: rotate(-5deg) translateY(10px);
+}
+
+#window2{
+  background-image: url(../src/window2.svg);
+  margin-left: 30px;
+  transform: rotate(5deg) translateY(10px);
+}
+
+#window3{
+  margin-right: 30px;
+  transform: rotate(-5deg) translateY(10px);
+  background-image: url(../src/window3.svg);
+}
+
+#window4{
+  margin-left: 30px;
+  transform: rotate(5deg) translateY(10px);
+  /* background-image: url(../src/window1.svg); */
 }

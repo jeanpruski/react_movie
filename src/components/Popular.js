@@ -23,11 +23,39 @@ class Popular extends React.Component {
         cursor: 'pointer',
         transform: 'scale(1.15) rotate(20deg)',
         backgroundImage: logo,
+      },
+      styleModalEnter: {
+        display:'flex',
+        zIndex: '5000 !important',
+        position: 'fixed',
+        top: -80,
+        left: 0,
+        width: '100%',
+        height: 'calc(100% + 80px)',
+        color: 'white',
+        // backgroundColor: 'red',
       }
     };
     // this.onLikePopular = this.onLikePopular.bind(this);
     // this.onLikeDiscover = this.onLikeDiscover.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.shutdownModal = this.shutdownModal.bind(this);
+  }
+
+  shutdownModal() {
+    console.log('coucou');
+    this.setState({
+      styleModalEnter: {
+        // display:'none',
+        position: 'fixed',
+        top: -80,
+        left: 800,
+        width: '0',
+        height: '0',
+        color: 'red',
+        opacity: 0,
+      }
+    })
   }
 
   componentDidMount = async () => {
@@ -165,51 +193,186 @@ class Popular extends React.Component {
 
 
     return (
-      <div
-        style={{
-          marginBottom: '8vw',
-        }}>
-
-        <h1
-        style={{
-          color: '#2d2d2d',
-          marginTop: 80,
-        }}
-        >Films populaires
-        </h1>
-        <p
-          className="mb-3"
-        >Découvrez les 20 films les plus populaires du moment.</p>
-
-        <ul
-        style={{
-          zIndex: '1 !important'
-        }}
-        className="row">
-          {movieList}
-        </ul>
-
+      <div>
         <div
           style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            width: '100%',
-            marginBottom: 20,
+            marginBottom: '8vw',
           }}>
 
+          <h1
+          style={{
+            color: '#2d2d2d',
+            marginTop: 80,
+          }}
+          >Films populaires
+          </h1>
+          <p
+            className="mb-3"
+          >Découvrez les 20 films les plus populaires du moment.</p>
+
           <ul
-            id='boutonNav'
-            style={{
-              listStyle: 'none',
-              display: 'flex',
-              justifyContent: 'space-between',
-              margin: 'auto',
-            }}>
-            {renderPageNumbers}
+          style={{
+            zIndex: '1 !important'
+          }}
+          className="row">
+            {movieList}
           </ul>
+
+          <div
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+              marginBottom: 20,
+            }}>
+
+            <ul
+              id='boutonNav'
+              style={{
+                listStyle: 'none',
+                display: 'flex',
+                justifyContent: 'space-between',
+                margin: 'auto',
+              }}>
+              {renderPageNumbers}
+            </ul>
+          </div>
+
         </div>
 
+
+        <div
+          id='modalEnter'
+          style={this.state.styleModalEnter}
+        >
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              opacity: 0.9,
+              margin: 'auto 50px',
+            }}
+          >
+            
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: 60,
+                marginTop: 80,
+                transform: 'scale(1.2)',
+              }}
+            >
+              <div id="logoModalTitle"></div>
+              <h1
+                style={{
+                  marginTop: 10,
+                  fontWeight: 700,
+                  letterSpacing: '1px',
+                  textShadow: "2px 2px 10px black",
+                }}
+              >COUCOUCINÉ</h1> 
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                maxWidth: 400,
+                transform: 'translateX(-40px) rotate(-1deg)',
+              }}
+            >
+              <div
+                id="window1"
+                className="windows"
+              ></div>
+
+              <p
+                style={{
+                  textAlign: 'left',
+                  fontSize: '1.3rem',
+                  lineHeight: '1.4rem',
+                }}
+              >Découvrez les films les plus populaires de la plateforme.</p>
+            </div>
+
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'row-reverse',
+                maxWidth: 400,
+                marginTop: 10,
+
+                transform: 'translateX(40px) rotate(1deg)',
+
+              }}
+            >
+              <div
+                id="window2"
+                className="windows"
+              ></div>
+              <p
+                style={{
+                  textAlign: 'right',
+                  fontSize: '1.3rem',
+                  lineHeight: '1.4rem',
+                }}
+              >Générez un film aléatoirement et de magnifiques histoires.</p>
+            </div>
+
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                maxWidth: 400,
+                marginTop: 10,
+
+                transform: 'translateX(-40px) rotate(1deg)',
+              }}
+            >
+              <div
+                  id="window3"
+                  className="windows"
+                ></div>
+              <p
+                style={{
+                  textAlign: 'left',
+                  fontSize: '1.3rem',
+                  lineHeight: '1.4rem',
+                }}
+              >Ajoutez, retirez et enregistrez votre liste de film.</p>
+            </div>
+
+
+
+              <p
+                style={{
+                  textAlign: 'right',
+                  fontSize: '1.3rem',
+                  lineHeight: '1.4rem',
+                  marginTop: '50px',
+                }}
+              >Courrez acheter du Pop-Corn !!</p>
+
+
+
+            <h2
+              onClick={this.shutdownModal}
+              style={{
+                marginTop: 20,
+                cursor: 'pointer',
+              }}
+            >Créer une liste !</h2>
+          </div>
+        </div>
       </div>
     );
   }
