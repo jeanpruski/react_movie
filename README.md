@@ -1,7 +1,7 @@
 # COUCOUCINÉ
-```
-**COUCOUCINÉ** est une application react utilisant l'API TheMovieDb. 
 
+**COUCOUCINÉ** est une application react utilisant l'API TheMovieDb. 
+```
 Cette dernière nous permet :
 - De découvrir les films les plus populaires du moment.
 - De générer aléatoirement un film de la base de donnée *(tinderLike)*.
