@@ -18,4 +18,3 @@ Cette dernière nous permet :
 ► D'enregistrer ces films sur une liste, de la gérer et de pouvoir la sauvegarder en PDF.
 ```
 
-
